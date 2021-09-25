@@ -3,17 +3,26 @@ package com.uninassau.programacao.avancada.consultmed.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Medico extends Pessoa{
-    private String crm;
+public class Medico{
+    @Id
+    @GeneratedValue
+    private Long Id;
+    private String nome;
+    private LocalDate dataNascimento;
+    private String cpf;
     @OneToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.REMOVE} )
+    private Endereco endereco;
+    private String telefone;
+    private String crm;
+    @ManyToOne
     private EspecialidadeMedica especialidadeMedica;
 }

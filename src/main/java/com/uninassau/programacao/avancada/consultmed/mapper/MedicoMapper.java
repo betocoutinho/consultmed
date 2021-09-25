@@ -4,6 +4,7 @@ import com.uninassau.programacao.avancada.consultmed.dto.MedicoDto;
 import com.uninassau.programacao.avancada.consultmed.model.Medico;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 @Mapper
 public interface MedicoMapper {
