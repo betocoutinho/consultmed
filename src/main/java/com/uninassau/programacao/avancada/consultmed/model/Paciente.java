@@ -14,11 +14,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Paciente {
     @Id
-    @GeneratedValue
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
-    private String NomeDaMãe;
+    private String nomeDaMãe;
     private String cpf;
     @OneToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.REMOVE} )
     private Endereco endereco;

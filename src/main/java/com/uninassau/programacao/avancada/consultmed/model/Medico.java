@@ -14,8 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Medico{
     @Id
-    @GeneratedValue
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;

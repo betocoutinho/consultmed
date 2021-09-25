@@ -1,12 +1,13 @@
 package com.uninassau.programacao.avancada.consultmed.dto;
 
 
+import com.uninassau.programacao.avancada.consultmed.model.Medico;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
@@ -19,7 +20,7 @@ public class ConsultorioDto {
 
     @Size(max = 50)
     @NotEmpty
-    private String endereco;
+    private EnderecoDto endereco;
 
     @Size(max = 50)
     @NotEmpty
@@ -28,4 +29,6 @@ public class ConsultorioDto {
     @Size(max = 14)
     @NotEmpty
     private String cnpj;
+
+
 }

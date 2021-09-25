@@ -5,6 +5,7 @@ import com.uninassau.programacao.avancada.consultmed.mapper.ConsultorioMapper;
 import com.uninassau.programacao.avancada.consultmed.model.Consultorio;
 import com.uninassau.programacao.avancada.consultmed.repository.ConsultorioRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,9 +14,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class ConsultorioService {
 
+    @Autowired
     private ConsultorioRepository consultorioRepository;
     private final ConsultorioMapper consultorioMapper = ConsultorioMapper.INSTANCE;
 
@@ -26,7 +27,8 @@ public class ConsultorioService {
     }
 
     public ConsultorioDto findById(Long id){
-       Consultorio consultorio = consultorioRepository.findById(id).orElseThrow(()  -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "O ID não Existe"));
+       Consultorio consultorio = consultorioRepository.findById(id)
+               .orElseThrow(()  -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "O ID não Existe"));
 
        return consultorioMapper.toDto(consultorio);
    }

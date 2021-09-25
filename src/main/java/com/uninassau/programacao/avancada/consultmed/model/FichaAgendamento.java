@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -16,25 +17,27 @@ public class FichaAgendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @ManyToOne
     private Paciente paciente;
 
-    @Column(nullable = false)
+
+    @ManyToOne
     private Medico medico;
 
-    @Column(nullable = false)
-    private String especialidade;
+    @ManyToOne
+    private EspecialidadeMedica especialidade;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    private Consultorio Consultorio;
 
     @Column(nullable = false)
-    private String clinicaMedica;
+    private LocalDate dataAgendamento;
 
     @Column(nullable = false)
-    private String dataAgendamento;
+    private LocalDate dataConsulta;
 
     @Column(nullable = false)
-    private String dataConsulta;
-
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private StatusDoAgendamento statusConsulta;
 
 

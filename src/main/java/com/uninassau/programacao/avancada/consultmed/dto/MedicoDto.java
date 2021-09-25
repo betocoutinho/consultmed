@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 public class MedicoDto{
-    private Long Id;
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;

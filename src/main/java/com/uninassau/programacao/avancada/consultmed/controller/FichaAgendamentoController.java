@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/agendamentos")
-@RequiredArgsConstructor
 public class FichaAgendamentoController {
 
     @Autowired
@@ -36,9 +35,9 @@ public class FichaAgendamentoController {
 
     @PutMapping("/{id}")
     public FichaAgendamentoDto updateById (@RequestBody FichaAgendamentoDto fichaAgendamentoDto,
-                                            @PathVariable Long Id ){
+                                            @PathVariable Long id ){
 
-        return fichaAgendamentoService.updateById(fichaAgendamentoDto, Id);
+        return fichaAgendamentoService.updateById(fichaAgendamentoDto, id);
 
     }
     @DeleteMapping("/{id}")

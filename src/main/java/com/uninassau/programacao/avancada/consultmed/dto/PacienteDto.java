@@ -13,11 +13,11 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 public class PacienteDto{
-    private Long Id;
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;
-    private Endereco endereco;
+    private EnderecoDto endereco;
     private String telefone;
-    private String NomeDaMãe;
+    private String nomeDaMãe;
 }
