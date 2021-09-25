@@ -1,15 +1,14 @@
-package com.uninassau.programacao.avancada.consultmed.model;
+package com.uninassau.programacao.avancada.consultmed.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-
-@Entity
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Paciente extends Pessoa{
+public class PacienteDto extends PessoaDTO{
     private String NomeDaMãe;
 }
