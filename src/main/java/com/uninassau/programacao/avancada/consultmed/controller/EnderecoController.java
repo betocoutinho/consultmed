@@ -1,9 +1,7 @@
 package com.uninassau.programacao.avancada.consultmed.controller;
-
 import com.uninassau.programacao.avancada.consultmed.dto.EnderecoDto;
 import com.uninassau.programacao.avancada.consultmed.service.EnderecoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
