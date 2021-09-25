@@ -1,28 +1,26 @@
-package com.uninassau.programacao.avancada.consultmed.model;
+package com.uninassau.programacao.avancada.consultmed.dto;
 
+import com.uninassau.programacao.avancada.consultmed.model.Endereco;
+import com.uninassau.programacao.avancada.consultmed.model.EspecialidadeMedica;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Medico{
-    @Id
-    @GeneratedValue
+public class MedicoDto{
     private Long Id;
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;
-    @OneToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.REMOVE} )
     private Endereco endereco;
     private String telefone;
     private String crm;
-    @ManyToOne
     private EspecialidadeMedica especialidadeMedica;
 }
