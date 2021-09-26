@@ -176,6 +176,7 @@
         text-decoration: none;
       }
     </style>
+    <meta charset="UTF-8">
   </head>
   <body>
   <h1>ConsultMed - API para Agendamento de Consultas Médicas.</h1>
@@ -183,7 +184,7 @@
     <div class="app-desc">More information: <a href="https://github.com/betocoutinho">https://github.com/betocoutinho</a></div>
     <div class="app-desc">Contact Info: <a href="robertogmcfilho@gmail.com">robertogmcfilho@gmail.com</a></div>
     <div class="app-desc">Version: v1</div>
-    <div class="app-desc">BasePath:localhost:8080/consultmed/v1</div>
+    <div class="app-desc">BasePath:/betocoutinho/consultmed/v1</div>
     <div class="license-info">All rights reserved</div>
     <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
   <h2>Access</h2>
@@ -209,7 +210,7 @@
   <li><a href="#consultoriosIdPut"><code><span class="http-method">put</span> /consultorios/{id}</code></a></li>
   <li><a href="#consultoriosPost"><code><span class="http-method">post</span> /consultorios</code></a></li>
   </ul>
-  <h4><a href="#Endereos">Endereos</a></h4>
+  <h4><a href="#Endereços">Endereços</a></h4>
   <ul>
   <li><a href="#enderecosGet"><code><span class="http-method">get</span> /enderecos</code></a></li>
   <li><a href="#enderecosIdDelete"><code><span class="http-method">delete</span> /enderecos/{id}</code></a></li>
@@ -217,7 +218,7 @@
   <li><a href="#enderecosIdPut"><code><span class="http-method">put</span> /enderecos/{id}</code></a></li>
   <li><a href="#enderecosPost"><code><span class="http-method">post</span> /enderecos</code></a></li>
   </ul>
-  <h4><a href="#EspecialidadeMdica">EspecialidadeMdica</a></h4>
+  <h4><a href="#EspecialidadeMedica">EspecialidadeMédica</a></h4>
   <ul>
   <li><a href="#especialidadesGet"><code><span class="http-method">get</span> /especialidades</code></a></li>
   <li><a href="#especialidadesIdDelete"><code><span class="http-method">delete</span> /especialidades/{id}</code></a></li>
@@ -225,7 +226,7 @@
   <li><a href="#especialidadesIdPut"><code><span class="http-method">put</span> /especialidades/{id}</code></a></li>
   <li><a href="#especialidadesPost"><code><span class="http-method">post</span> /especialidades</code></a></li>
   </ul>
-  <h4><a href="#Mdicos">Mdicos</a></h4>
+  <h4><a href="#Medicos">Médicos</a></h4>
   <ul>
   <li><a href="#medicosGet"><code><span class="http-method">get</span> /medicos</code></a></li>
   <li><a href="#medicosIdDelete"><code><span class="http-method">delete</span> /medicos/{id}</code></a></li>
@@ -530,7 +531,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#consultorio">consultorio</a> (required)</div>
+      <div class="param">body <a href="#fichaAgendamento">fichaAgendamento</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
                 </div>  <!-- field-items -->
@@ -540,7 +541,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#consultorio">consultorio</a>
+      <a href="#fichaAgendamento">fichaAgendamento</a>
       
     </div>
 
@@ -549,17 +550,51 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "nomeFantasia" : "nomeFantasia",
-  "endereco" : {
-    "cidade" : "cidade",
-    "estado" : "estado",
-    "bairro" : "bairro",
+  "statusConsulta" : "MARCADO",
+  "paciente" : {
+    "telefone" : "telefone",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "cpf" : "cpf",
+    "nome" : "nome",
     "id" : 6,
-    "rua" : "rua",
-    "cep" : "cep"
+    "dataNascimento" : "2000-01-23",
+    "nomeDaMae" : "nomeDaMae"
   },
+  "consultorio" : {
+    "nomeFantasia" : "nomeFantasia",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "id" : 0,
+    "cnpj" : "cnpj"
+  },
+  "medico" : {
+    "telefone" : "telefone",
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 1,
+    "dataNascimento" : "2000-01-23",
+    "crm" : "crm",
+    "especialidadeMedica" : {
+      "id" : 0,
+      "descricao" : "descricao"
+    }
+  },
+  "dataAgendamento" : "2000-01-23",
   "id" : 0,
-  "cnpj" : "cnpj"
+  "dataConsulta" : "2000-01-23"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -572,7 +607,7 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     Atualização realizada
-        <a href="#consultorio">consultorio</a>
+        <a href="#fichaAgendamento">fichaAgendamento</a>
     <h4 class="field-label">400</h4>
     Esse ID não existe.
         <a href="#"></a>
@@ -900,7 +935,7 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="Endereos">Endereos</a></h1>
+  <h1><a name="Endereços">Endereços</a></h1>
   <div class="method"><a name="enderecosGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1158,7 +1193,7 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="EspecialidadeMdica">EspecialidadeMdica</a></h1>
+  <h1><a name="EspecialidadeMedica">EspecialidadeMedica</a></h1>
   <div class="method"><a name="especialidadesGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1400,7 +1435,7 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="Mdicos">Mdicos</a></h1>
+  <h1><a name="Medicos">Médicos</a></h1>
   <div class="method"><a name="medicosGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1416,7 +1451,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#consultorio">consultorio</a>]
+      array[<a href="#medico">medico</a>]
       
     </div>
 
@@ -1425,29 +1460,27 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>[ {
-  "nomeFantasia" : "nomeFantasia",
-  "endereco" : {
-    "cidade" : "cidade",
-    "estado" : "estado",
-    "bairro" : "bairro",
-    "id" : 6,
-    "rua" : "rua",
-    "cep" : "cep"
-  },
-  "id" : 0,
-  "cnpj" : "cnpj"
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
 }, {
-  "nomeFantasia" : "nomeFantasia",
-  "endereco" : {
-    "cidade" : "cidade",
-    "estado" : "estado",
-    "bairro" : "bairro",
-    "id" : 6,
-    "rua" : "rua",
-    "cep" : "cep"
-  },
-  "id" : 0,
-  "cnpj" : "cnpj"
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
 } ]</code></pre>
 
     <h3 class="field-label">Produces</h3>

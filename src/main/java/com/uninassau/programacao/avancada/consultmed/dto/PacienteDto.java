@@ -19,5 +19,5 @@ public class PacienteDto{
     private String cpf;
     private EnderecoDto endereco;
     private String telefone;
-    private String nomeDaMãe;
+    private String nomeDaMae;
 }

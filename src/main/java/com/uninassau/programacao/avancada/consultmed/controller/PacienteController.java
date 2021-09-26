@@ -35,7 +35,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(Long id){
-        pacienteService.DeleteById(id);
+    public void deleteById(@PathVariable Long id){
+         pacienteService.DeleteById(id);
     }
 }

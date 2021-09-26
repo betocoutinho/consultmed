@@ -18,7 +18,7 @@ public class Paciente {
     private Long id;
     private String nome;
     private LocalDate dataNascimento;
-    private String nomeDaMãe;
+    private String nomeDaMae;
     private String cpf;
     @OneToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.REMOVE} )
     private Endereco endereco;
