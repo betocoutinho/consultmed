@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/enderecos")
+@RequestMapping("/consultmed/v1/enderecos")
 @RequiredArgsConstructor
 public class EnderecoController {
 

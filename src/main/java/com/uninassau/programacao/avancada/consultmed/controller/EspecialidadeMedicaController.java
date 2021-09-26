@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/especialidade")
+@RequestMapping("/consultmed/v1/especialidades")
 public class EspecialidadeMedicaController {
 
     @Autowired
