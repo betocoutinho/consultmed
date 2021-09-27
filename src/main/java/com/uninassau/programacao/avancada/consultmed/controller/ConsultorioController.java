@@ -15,7 +15,8 @@ public class ConsultorioController {
     private ConsultorioService consultorioService;
 
     @GetMapping
-    public List<ConsultorioDto> listAll(){ return consultorioService.listAll(); }
+    public List<ConsultorioDto> listAll(){
+        return consultorioService.listAll(); }
 
     @GetMapping("/{id}")
     public ConsultorioDto findById(@PathVariable Long id){return consultorioService.findById(id);}
